@@ -1,5 +1,6 @@
 # ElpzCrk
-## Crea Diccionarios Personalizados. Elige Todas Las Palabras Que Desees Combinar e Indica El Máximo De Caracteres Para Las Cadenas.
+## Crea Diccionarios Personalizados.
+### Elige Todas Las Palabras Que Desees Combinar e Indica El Máximo De Caracteres Para Las Cadenas.
 
 - - -
 
@@ -14,16 +15,24 @@
                             ║  ├─┤││││  │├┤  │ ║╠═╣
                             ╩═╝┴ ┴└┴┘┴─┘┴└─┘ ┴╚╝╩ ╩
 
-                                     v1.2.7
+                                     v1.3.0
 - - -
 
-Modo de Uso:
+### Modo de Uso:
+
+#### Menú:
+
+* [1] Crear Diccionarios Con Caracteres Desde 1.
+    * Generará Cadenas Con Caracteres de Longitud 1 hasta el Máximo Seleccionado.
+* [2] Crear Diccionarios Con Caracteres De La Longitud Indicada.
+    * Generará Cadenas Con Caracteres Sólo de la Longitud Seleccionada.
+
+#### Elegir Datos: 
 
 * Añade Palabras.
 * Indica el Número Máximo de caracteres.
 
-El Script Tomará Todas Las Palabras Y Comenzará A Crear Todas las combinaciones posibles con las palabras escritas y con la longitud 
-desde 1 caracter hasta el Máximo que se haya indicado.
+#### Información:
 
 * El Proceso Es Veloz.
 * Mostrará El Total De Cadenas Que Tendrá El Archivo.
