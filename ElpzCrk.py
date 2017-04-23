@@ -8,7 +8,7 @@
 #          ███████╗███████╗██║     ███████╗╚██████╗██║  ██║██║  ██╗
 #          ╚══════╝╚══════╝╚═╝     ╚══════╝ ╚═════╝╚═╝  ╚═╝╚═╝  ╚═╝
 #                                                         By: LawlietJH
-#																v1.3.4
+#																v1.3.5
 
 import time
 import sys
@@ -17,7 +17,7 @@ import os
 
 
 Autor = "LawlietJH"
-Version = "v1.3.4"
+Version = "v1.3.5"
 
 BEC = """
           ███████╗██╗     ██████╗ ███████╗ ██████╗██████╗ ██╗  ██╗
@@ -469,6 +469,52 @@ def Combin(A, Eny):	# Función Que Crea Las Cadenas Desde 1 Hasta El Máximo de 
 															for _15 in Alf:
 																_15 = _14 + _15
 																Save(_15, Eny)
+	elif Cony == 16:
+		for _2 in Alf:
+			_2 = A + _2
+			Save(_2, Eny)
+			for _3 in Alf:
+				_3 = _2 + _3
+				Save(_3, Eny)
+				for _4 in Alf:
+					_4 = _3 + _4
+					Save(_4, Eny)
+					for _5 in Alf:
+						_5 = _4 + _5
+						Save(_5, Eny)
+						for _6 in Alf:
+							_6 = _5 + _6
+							Save(_6, Eny)
+							for _7 in Alf:
+								_7 = _6 + _7
+								Save(_7, Eny)
+								for _8 in Alf:
+									_8 = _7 + _8
+									Save(_8, Eny)
+									for _9 in Alf:
+										_9 = _8 + _9
+										Save(_9, Eny)
+										for _10 in Alf:
+											_10 = _9 + _10
+											Save(_10, Eny)
+											for _11 in Alf:
+												_11 = _10 + _11
+												Save(_11, Eny)
+												for _12 in Alf:
+													_12 = _11 + _12
+													Save(_12, Eny)
+													for _13 in Alf:
+														_13 = _12 + _13
+														Save(_13, Eny)
+														for _14 in Alf:
+															_14 = _13 + _14
+															Save(_14, Eny)
+															for _15 in Alf:
+																_15 = _14 + _15
+																Save(_15, Eny)
+																for _16 in Alf:
+																	_16 = _15 + _16
+																	Save(_16, Eny)
 
 
 
@@ -714,6 +760,38 @@ def Comby(A, Eny):	# Función Que Crea Las Cadenas Sólo de la Longitud Elegida.
 															for _15 in Alf:
 																_15 = _14 + _15
 																Save(_15, Eny)
+	elif Cony == 16:
+		for _2 in Alf:
+			_2 = A + _2
+			for _3 in Alf:
+				_3 = _2 + _3
+				for _4 in Alf:
+					_4 = _3 + _4
+					for _5 in Alf:
+						_5 = _4 + _5
+						for _6 in Alf:
+							_6 = _5 + _6
+							for _7 in Alf:
+								_7 = _6 + _7
+								for _8 in Alf:
+									_8 = _7 + _8
+									for _9 in Alf:
+										_9 = _8 + _9
+										for _10 in Alf:
+											_10 = _9 + _10
+											for _11 in Alf:
+												_11 = _10 + _11
+												for _12 in Alf:
+													_12 = _11 + _12
+													for _13 in Alf:
+														_13 = _12 + _13
+														for _14 in Alf:
+															_14 = _13 + _14
+															for _15 in Alf:
+																_15 = _14 + _15
+																for _16 in Alf:
+																	_16 = _15 + _16
+																	Save(_16, Eny)
 	
 
 
@@ -925,10 +1003,10 @@ def Main():	# Función Principal Que Llama A Las Otras Funciones.
 	
 		try:
 			
-			if Comy == False: Cony = int(input("\n [+] Longitud Máx. [1-13]: "))
-			elif Comy == True: Cony = int(input("\n [+] Longitud [1-13]: "))
+			if Comy == False: Cony = int(input("\n [+] Longitud Máx. [1-16]: "))
+			elif Comy == True: Cony = int(input("\n [+] Longitud [1-16]: "))
 			
-			if Cony > 13: print("\n\n\t [!] Elige Un Número Entre [1-13]\n")
+			if Cony > 16: print("\n\n\t [!] Elige Un Número Entre [1-16]\n")
 			elif Cony < 1: pass
 			else: break
 		
