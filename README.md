@@ -15,7 +15,7 @@
                             ║  ├─┤││││  │├┤  │ ║╠═╣
                             ╩═╝┴ ┴└┴┘┴─┘┴└─┘ ┴╚╝╩ ╩
 
-                                     v1.3.0
+                                     v1.3.5
 - - -
 
 ### Modo de Uso:
@@ -29,8 +29,8 @@
 
 #### Elegir Datos: 
 
-* Añade Palabras.
-* Indica el Número Máximo de caracteres.
+* Añade Tus Palabras.
+* Indica la Longitud Máxima de las Cadena [1-16].
 
 #### Información:
 
