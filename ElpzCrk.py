@@ -87,7 +87,9 @@ def Progreso(x, Total):	# Imprime Una Barra De Progreso.
 
 def Tiempo(sec):	# Imprime El Tiempo Restante.
 	
-	if sec >= 604800:  # Convierte a Semanas
+	if sec >= 31449600:  # Convierte a Años
+		return "{0:d} año(s)".format(int(sec / 31449600))
+	elif sec >= 604800:  # Convierte a Semanas
 		return "{0:d} Semana(s)".format(int(sec / 604800))
 	elif sec >= 86400:  # Convierte a Dias
 		return "{0:d} Dia(s)".format(int(sec / 86400))
