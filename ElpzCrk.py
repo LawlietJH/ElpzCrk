@@ -8,7 +8,7 @@
 #          ███████╗███████╗██║     ███████╗╚██████╗██║  ██║██║  ██╗
 #          ╚══════╝╚══════╝╚═╝     ╚══════╝ ╚═════╝╚═╝  ╚═╝╚═╝  ╚═╝
 #                                                         By: LawlietJH
-#																v1.2.2
+#																v1.2.3
 
 import threading
 import time
@@ -18,7 +18,7 @@ import os
 
 
 Autor = "LawlietJH"
-Version = "v1.2.2"
+Version = "v1.2.3"
 
 BEC = """
           ███████╗██╗     ██████╗ ███████╗ ██████╗██████╗ ██╗  ██╗
@@ -210,6 +210,30 @@ def Combin(A, Eny):
 							for _7 in Alf:
 								_7 = _6 + _7
 								Save(_7, Eny)
+	
+	elif Cony == 8:
+		
+		for _2 in Alf:
+			_2 = A + _2
+			Save(_2, Eny)
+			for _3 in Alf:
+				_3 = _2 + _3
+				Save(_3, Eny)
+				for _4 in Alf:
+					_4 = _3 + _4
+					Save(_4, Eny)
+					for _5 in Alf:
+						_5 = _4 + _5
+						Save(_5, Eny)
+						for _6 in Alf:
+							_6 = _5 + _6
+							Save(_6, Eny)
+							for _7 in Alf:
+								_7 = _6 + _7
+								Save(_7, Eny)
+								for _8 in Alf:
+									_8 = _7 + _8
+									Save(_8, Eny)
 
 
 
