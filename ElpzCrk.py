@@ -8,7 +8,7 @@
 #          ███████╗███████╗██║     ███████╗╚██████╗██║  ██║██║  ██╗
 #          ╚══════╝╚══════╝╚═╝     ╚══════╝ ╚═════╝╚═╝  ╚═╝╚═╝  ╚═╝
 #                                                         By: LawlietJH
-#																v1.2.1
+#																v1.2.2
 
 import threading
 import time
@@ -18,7 +18,7 @@ import os
 
 
 Autor = "LawlietJH"
-Version = "v1.2.1"
+Version = "v1.2.2"
 
 BEC = """
           ███████╗██╗     ██████╗ ███████╗ ██████╗██████╗ ██╗  ██╗
@@ -237,28 +237,54 @@ def Imprimir(Eny):
 	Total = Tot()
 	Actual = 1
 	
-	print("\n\n\t [*] Generando Lista De Cadenas y Guardandolas En El Archivo...")
-	print("\n\n\t\t [~] Tamaño Aprox. De Salida: {:.3f} Mb.".format(Total/130000))
-	print("\n\t\t [~] Total De Cadenas: {}\n\n".format(Total))
+	print("\n\t [*] Generando Lista De Cadenas y Guardandolas En El Archivo...")
+	print("\n\t\t [~] Tamaño Aprox. De Salida:\t{:.3f} Mb.".format(Total/130000))
+	print("\t\t [~] Total De Cadenas:\t\t{}".format(Total))
+	print("\t\t [~] Nombre De Archivo:\t\tEny.ZioN\n\n")
 	
-	for x in Alf:
+	try:
+		for x in Alf:
+			
+			Save(x, Eny)
+			
+			if Cony >= 2: Combin(x, Eny)
 		
-		Save(x, Eny)
-		
-		if Cony >= 2: Combin(x, Eny)
+		Progreso(Actual-1, Total)
 	
-	Progreso(Actual-1, Total)
-
+	except KeyboardInterrupt:
+			
+			print("\n\n\t Cancelando..!")
+			try: time.sleep(1.5)
+			except KeyboardInterrupt: pass
+			exit(1)
 
 
 def Main():
 	
 	global Cony, Total, Alf
 	
-	Keys = input("\n\n [*] Añade Palabras Para Crear El Diccionario."+
-				 "\n\n [*] Separalas usando 'espacio' ',' ';'"+
-				 "\n\n [*] Ejemplos: Hola Mundo | Hola,Mundo | Hola;Mundo | Hola, Mundo | etc."+
-				 "\n\n     >>> ").replace(" ",";").replace(",",";").split(";")
+	Keys = ""
+	
+	while True:
+		
+		os.system("cls")
+		Dat()
+		
+		try:
+			Keys = input("\n [*] Añade Palabras Para Crear El Diccionario."+
+						 "\n [*] Separalas usando 'espacio' ',' ';'"+
+						 "\n [*] Ejemplos: Hola Mundo | Hola,Mundo | Hola;Mundo | Hola, Mundo | etc."+
+						 "\n\n     >>> ").replace(" ",";").replace(",",";").split(";")
+
+			if Keys != [""]: break
+			
+		except KeyboardInterrupt:
+			
+			print("\n\n\t Cancelando..!")
+			try: time.sleep(1.5)
+			except KeyboardInterrupt: pass
+			exit(1)
+	
 	Alfa = ""
 	Alf = ""
 	
@@ -274,15 +300,20 @@ def Main():
 	
 		try:
 			
-			Cony = int(input("\n [+] Longitud Máx. [1-6]: "))
+			Cony = int(input("\n [+] Longitud Máx. [1-7]: "))
 			
-			if Cony > 6: print("\n\n [!] Error!")
-			elif Cony < 1: return
+			if Cony > 7: print("\n\n\t [!] Elige Un Número Entre [1-7]\n")
+			elif Cony < 1: pass
 			else: break
 		
-		except:
+		except KeyboardInterrupt:
 			
-			print("\n\n [!] Error!")
+			print("\n\n\t Cancelando..!")
+			try: time.sleep(1.5)
+			except KeyboardInterrupt: pass
+			exit(1)
+		
+		except ValueError: pass
 	
 	open("Eny.ZioN","w")
 	Eny = open("Eny.ZioN","a")
