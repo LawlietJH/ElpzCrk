@@ -8,7 +8,7 @@
 #          ███████╗███████╗██║     ███████╗╚██████╗██║  ██║██║  ██╗
 #          ╚══════╝╚══════╝╚═╝     ╚══════╝ ╚═════╝╚═╝  ╚═╝╚═╝  ╚═╝
 #                                                         By: LawlietJH
-#																v1.2.9
+#																v1.3.0
 
 import threading
 import time
@@ -18,7 +18,7 @@ import os
 
 
 Autor = "LawlietJH"
-Version = "v1.2.9"
+Version = "v1.3.0"
 
 BEC = """
           ███████╗██╗     ██████╗ ███████╗ ██████╗██████╗ ██╗  ██╗
@@ -59,6 +59,7 @@ Total = 0
 Cony = 0
 List = []
 Lisy = []
+Comy = False
 
 
 
@@ -377,6 +378,193 @@ def Combin(A, Eny):
 
 
 
+def Comby(A, Eny):
+	
+	global Cony
+	
+	if Cony == 2:
+		for _2 in Alf:
+			_2 = A + _2
+			Save(_2, Eny)
+	elif Cony == 3:
+		for _2 in Alf:
+			_2 = A + _2
+			for _3 in Alf:
+				_3 = _2 + _3
+				Save(_3, Eny)
+	elif Cony == 4:
+		for _2 in Alf:
+			_2 = A + _2
+			for _3 in Alf:
+				_3 = _2 + _3
+				for _4 in Alf:
+					_4 = _3 + _4
+					Save(_4, Eny)
+	elif Cony == 5:
+		for _2 in Alf:
+			_2 = A + _2
+			for _3 in Alf:
+				_3 = _2 + _3
+				for _4 in Alf:
+					_4 = _3 + _4
+					for _5 in Alf:
+						_5 = _4 + _5
+						Save(_5, Eny)
+	elif Cony == 6:
+		for _2 in Alf:
+			_2 = A + _2
+			for _3 in Alf:
+				_3 = _2 + _3
+				for _4 in Alf:
+					_4 = _3 + _4
+					for _5 in Alf:
+						_5 = _4 + _5
+						for _6 in Alf:
+							_6 = _5 + _6
+							Save(_6, Eny)
+	elif Cony == 7:
+		for _2 in Alf:
+			_2 = A + _2
+			for _3 in Alf:
+				_3 = _2 + _3
+				for _4 in Alf:
+					_4 = _3 + _4
+					for _5 in Alf:
+						_5 = _4 + _5
+						for _6 in Alf:
+							_6 = _5 + _6
+							for _7 in Alf:
+								_7 = _6 + _7
+								Save(_7, Eny)
+	elif Cony == 8:
+		for _2 in Alf:
+			_2 = A + _2
+			for _3 in Alf:
+				_3 = _2 + _3
+				for _4 in Alf:
+					_4 = _3 + _4
+					for _5 in Alf:
+						_5 = _4 + _5
+						for _6 in Alf:
+							_6 = _5 + _6
+							for _7 in Alf:
+								_7 = _6 + _7
+								for _8 in Alf:
+									_8 = _7 + _8
+									Save(_8, Eny)
+	elif Cony == 9:
+		for _2 in Alf:
+			_2 = A + _2
+			for _3 in Alf:
+				_3 = _2 + _3
+				for _4 in Alf:
+					_4 = _3 + _4
+					for _5 in Alf:
+						_5 = _4 + _5
+						for _6 in Alf:
+							_6 = _5 + _6
+							for _7 in Alf:
+								_7 = _6 + _7
+								for _8 in Alf:
+									_8 = _7 + _8
+									for _9 in Alf:
+										_9 = _8 + _9
+										Save(_9, Eny)
+	elif Cony == 10:
+		for _2 in Alf:
+			_2 = A + _2
+			for _3 in Alf:
+				_3 = _2 + _3
+				for _4 in Alf:
+					_4 = _3 + _4
+					for _5 in Alf:
+						_5 = _4 + _5
+						for _6 in Alf:
+							_6 = _5 + _6
+							for _7 in Alf:
+								_7 = _6 + _7
+								for _8 in Alf:
+									_8 = _7 + _8
+									for _9 in Alf:
+										_9 = _8 + _9
+										for _10 in Alf:
+											_10 = _9 + _10
+											Save(_10, Eny)
+	elif Cony == 11:
+		for _2 in Alf:
+			_2 = A + _2
+			for _3 in Alf:
+				_3 = _2 + _3
+				for _4 in Alf:
+					_4 = _3 + _4
+					for _5 in Alf:
+						_5 = _4 + _5
+						for _6 in Alf:
+							_6 = _5 + _6
+							for _7 in Alf:
+								_7 = _6 + _7
+								for _8 in Alf:
+									_8 = _7 + _8
+									for _9 in Alf:
+										_9 = _8 + _9
+										for _10 in Alf:
+											_10 = _9 + _10
+											for _11 in Alf:
+												_11 = _10 + _11
+												Save(_11, Eny)
+	elif Cony == 12:
+		for _2 in Alf:
+			_2 = A + _2
+			for _3 in Alf:
+				_3 = _2 + _3
+				for _4 in Alf:
+					_4 = _3 + _4
+					for _5 in Alf:
+						_5 = _4 + _5
+						for _6 in Alf:
+							_6 = _5 + _6
+							for _7 in Alf:
+								_7 = _6 + _7
+								for _8 in Alf:
+									_8 = _7 + _8
+									for _9 in Alf:
+										_9 = _8 + _9
+										for _10 in Alf:
+											_10 = _9 + _10
+											for _11 in Alf:
+												_11 = _10 + _11
+												for _12 in Alf:
+													_12 = _11 + _12
+													Save(_12, Eny)
+	elif Cony == 13:
+		for _2 in Alf:
+			_2 = A + _2
+			for _3 in Alf:
+				_3 = _2 + _3
+				for _4 in Alf:
+					_4 = _3 + _4
+					for _5 in Alf:
+						_5 = _4 + _5
+						for _6 in Alf:
+							_6 = _5 + _6
+							for _7 in Alf:
+								_7 = _6 + _7
+								for _8 in Alf:
+									_8 = _7 + _8
+									for _9 in Alf:
+										_9 = _8 + _9
+										for _10 in Alf:
+											_10 = _9 + _10
+											for _11 in Alf:
+												_11 = _10 + _11
+												for _12 in Alf:
+													_12 = _11 + _12
+													for _13 in Alf:
+														_13 = _12 + _13
+														Save(_13, Eny)
+	
+
+
 def Barra():
 	
 	global Total, Actual
@@ -400,47 +588,33 @@ def getTotal(Total):
 	Cadena = ""
 	
 	if Len >= 4 and Len <=6:
-		
 		Cadena = str(Total)
 		Cadena = Cadena[:-3] + "," + Cadena[-3:]
 		return Cadena
-	
 	elif Len >= 7 and Len <=9:
-		
 		Cadena = str(Total)
 		Cadena = Cadena[:-6] + "," + Cadena[-6:-3] + "," + Cadena[-3:]
 		return Cadena
-		
 	elif Len >= 10 and Len <=12:
-		
 		Cadena = str(Total)
 		Cadena = Cadena[:-9] + "," + Cadena[-9:-6] + "," + Cadena[-6:-3] + "," + Cadena[-3:]
 		return Cadena
-		
 	elif Len >= 13 and Len <=15:
-		
 		Cadena = str(Total)
 		Cadena = Cadena[:-12] + "," + Cadena[-12:-9] + "," + Cadena[-9:-6] + "," + Cadena[-6:-3] + "," + Cadena[-3:]
 		return Cadena
-		
 	elif Len >= 16 and Len <=18:
-		
 		Cadena = str(Total)
 		Cadena = Cadena[:-15] + "," + Cadena[-15:-12] + "," + Cadena[-12:-9] + "," + Cadena[-9:-6] + "," + Cadena[-6:-3] + "," + Cadena[-3:]
-		return Cadena
-		
+		return Cadena	
 	elif Len >= 19 and Len <=21:
-		
 		Cadena = str(Total)
 		Cadena = Cadena[:-18] + "," + Cadena[-18:-15] + "," + Cadena[-15:-12] + "," + Cadena[-12:-9] + "," + Cadena[-9:-6] + "," + Cadena[-6:-3] + "," + Cadena[-3:]
 		return Cadena
-		
 	elif Len >= 22 and Len <=24:
-		
 		Cadena = str(Total)
 		Cadena = Cadena[:-21] + "," + Cadena[-21:-18] + "," + Cadena[-18:-15] + "," + Cadena[-15:-12] + "," + Cadena[-12:-9] + "," + Cadena[-9:-6] + "," + Cadena[-6:-3] + "," + Cadena[-3:]
 		return Cadena
-		
 	else: return str(Total)
 
 	
@@ -448,42 +622,103 @@ def Imprimir(Eny):
 	
 	global Total, Actual
 	
-	Total = Tot()
-	Actual = 1
-	Tam = Total/130000
-	Cadenas = ""
-	
-	print("\n\t [*] Generando Lista De Cadenas y Guardandolas En El Archivo...")
-	if Tam < 1000:   print("\n\t\t [~] Tamaño Aprox. De Salida:\t{:.3f} Mb.".format(Tam))
-	elif Tam > 1000: print("\n\t\t [~] Tamaño Aprox. De Salida:\t{:.2f} Gb.".format(Tam/1000))
-	
-	if len(str(Total)) <= 3: Cadenas = Total
-	else: Cadenas = getTotal(Total)
-	
-	print("\t\t [~] Total De Cadenas:\t\t{}".format(Cadenas))
-	print("\t\t [~] Nombre De Archivo:\t\tEny.ZioN\n\n")
-	
-	try:
-		for x in Alf:
-			
-			Save(x, Eny)
-			
-			if Cony >= 2: Combin(x, Eny)
+	if Comy == False:
 		
-		Progreso(Actual-1, Total)
+		Total = Tot()
+		Actual = 1
+		Tam = Total/130000
+		Cadenas = ""
 	
-	except KeyboardInterrupt:
+		print("\n\t [*] Generando Lista De Cadenas y Guardandolas En El Archivo...")
+		if Tam < 1000:   print("\n\t\t [~] Tamaño Aprox. De Salida:\t{:.3f} Mb.".format(Tam))
+		elif Tam > 1000: print("\n\t\t [~] Tamaño Aprox. De Salida:\t{:.2f} Gb.".format(Tam/1000))
+		
+		if len(str(Total)) <= 3: Cadenas = Total
+		else: Cadenas = getTotal(Total)
+		
+		print("\t\t [~] Total De Cadenas:\t\t{}".format(Cadenas))
+		print("\t\t [~] Nombre De Archivo:\t\tEny.ZioN\n\n")
+		
+		try:
+			for x in Alf:
+				
+				Save(x, Eny)
+				
+				if Cony >= 2: Combin(x, Eny)
 			
-			print("\n\n\t Cancelando..!")
-			try: time.sleep(1.5)
-			except KeyboardInterrupt: pass
-			exit(1)
+			Progreso(Actual-1, Total)
+		
+		except KeyboardInterrupt:
+				
+				print("\n\n\t Cancelando..!")
+				try: time.sleep(1.5)
+				except KeyboardInterrupt: pass
+				exit(1)
+				
+	elif Comy == True:
+		
+		Total = len(Alf) ** Cony
+		Actual = 1
+		Tam = Total/116510
+		Cadenas = ""
+		
+		print("\n\t [*] Generando Lista De Cadenas y Guardandolas En El Archivo...")
+		if Tam < 1000:   print("\n\t\t [~] Tamaño Aprox. De Salida:\t{:.3f} Mb.".format(Tam))
+		elif Tam > 1000: print("\n\t\t [~] Tamaño Aprox. De Salida:\t{:.2f} Gb.".format(Tam/1000))
+		
+		if len(str(Total)) <= 3: Cadenas = Total
+		else: Cadenas = getTotal(Total)
+		
+		print("\t\t [~] Total De Cadenas:\t\t{}".format(Cadenas))
+		print("\t\t [~] Nombre De Archivo:\t\tEny.ZioN\n\n")
+		
+		try:
+			
+			for x in Alf:
+				
+				if Cony == 1: Save(x, Eny)
+				elif Cony >= 2: Comby(x, Eny)
+			
+			Progreso(Actual-1, Total)
+		
+		except KeyboardInterrupt:
+				
+				print("\n\n\t Cancelando..!")
+				try: time.sleep(1.5)
+				except KeyboardInterrupt: pass
+				exit(1)
+
+
+
+#=======================================================================
+
 
 
 def Main():
 	
-	global Cony, Total, Alf
+	global Cony, Total, Alf, Comy
 	
+	while True:
+		
+		os.system("cls")
+		
+		print("\n\t [1] Crear Diccionarios Con Caracteres Desde 1. ")
+		print("\n\t [2] Crear Diccionarios Con Caracteres De La Longitud Indicada. ")
+		print("\n\t >>> ", end="")
+		
+		try:
+			Resp = int(input())
+			
+			if Resp == 2:
+				Comy = True
+				break
+			elif Resp == 1:
+				Comy = False
+				break
+			else: pass
+			
+		except: pass
+		
 	Keys = ""
 	
 	while True:
@@ -528,7 +763,8 @@ def Main():
 	
 		try:
 			
-			Cony = int(input("\n [+] Longitud Máx. [1-13]: "))
+			if Comy == False: Cony = int(input("\n [+] Longitud Máx. [1-13]: "))
+			elif Comy == True: Cony = int(input("\n [+] Longitud [1-13]: "))
 			
 			if Cony > 13: print("\n\n\t [!] Elige Un Número Entre [1-13]\n")
 			elif Cony < 1: pass
@@ -558,9 +794,6 @@ def Main():
 
 if __name__ == "__main__":
 	
-	
-	Dat()
-	
 	Main()
 
-	#~ asdfghjklñpoiuytrewqzxcvbnmASDFGHJKLÑPOIUYTREWQZXCVBNM0123456789_-¿?!¡.
+
