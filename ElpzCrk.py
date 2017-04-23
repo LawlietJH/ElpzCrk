@@ -1,15 +1,57 @@
 # -*- Coding: UTF-8 -*-
 # Python 3
-# v1.2.0
-# ElpzCrk
-# By: LawlietJH
-
-
+#
+#          ███████╗██╗     ██████╗ ███████╗ ██████╗██████╗ ██╗  ██╗
+#          ██╔════╝██║     ██╔══██╗╚══███╔╝██╔════╝██╔══██╗██║ ██╔╝
+#          █████╗  ██║     ██████╔╝  ███╔╝ ██║     ██████╔╝█████╔╝ 
+#          ██╔══╝  ██║     ██╔═══╝  ███╔╝  ██║     ██╔══██╗██╔═██╗ 
+#          ███████╗███████╗██║     ███████╗╚██████╗██║  ██║██║  ██╗
+#          ╚══════╝╚══════╝╚═╝     ╚══════╝ ╚═════╝╚═╝  ╚═╝╚═╝  ╚═╝
+#                                                         By: LawlietJH
+#																v1.2.1
 
 import threading
 import time
 import sys
 import os
+
+
+
+Autor = "LawlietJH"
+Version = "v1.2.1"
+
+BEC = """
+          ███████╗██╗     ██████╗ ███████╗ ██████╗██████╗ ██╗  ██╗
+          ██╔════╝██║     ██╔══██╗╚══███╔╝██╔════╝██╔══██╗██║ ██╔╝
+          █████╗  ██║     ██████╔╝  ███╔╝ ██║     ██████╔╝█████╔╝ 
+          ██╔══╝  ██║     ██╔═══╝  ███╔╝  ██║     ██╔══██╗██╔═██╗ 
+          ███████╗███████╗██║     ███████╗╚██████╗██║  ██║██║  ██╗
+          ╚══════╝╚══════╝╚═╝     ╚══════╝ ╚═════╝╚═╝  ╚═╝╚═╝  ╚═╝
+"""
+#~ Fuente: 'ANSI Shadow' - Página: http://patorjk.com/software/taag/#p=display&f=ANSI%20Shadow&t=ElpzCrk
+
+BA = r"""
+                            ╦  ┌─┐┬ ┬┬  ┬┌─┐┌┬┐╦╦ ╦
+                            ║  ├─┤││││  │├┤  │ ║╠═╣
+                            ╩═╝┴ ┴└┴┘┴─┘┴└─┘ ┴╚╝╩ ╩
+"""
+#~ Fuente: 'Calvin S' - Página: http://patorjk.com/software/taag/#p=display&f=Calvin%20S&t=LawlietJH
+
+
+#=======================================================================
+
+
+
+def Dat():
+		
+	Nombre = BEC
+	Autor = BA
+	Ver = "\n\n{:^80}".format(Version)
+	print(Nombre, "\n\n", Autor, Ver)
+
+
+
+#=======================================================================
 
 
 
@@ -147,6 +189,27 @@ def Combin(A, Eny):
 						for _6 in Alf:
 							_6 = _5 + _6
 							Save(_6, Eny)
+	
+	elif Cony == 7:
+		
+		for _2 in Alf:
+			_2 = A + _2
+			Save(_2, Eny)
+			for _3 in Alf:
+				_3 = _2 + _3
+				Save(_3, Eny)
+				for _4 in Alf:
+					_4 = _3 + _4
+					Save(_4, Eny)
+					for _5 in Alf:
+						_5 = _4 + _5
+						Save(_5, Eny)
+						for _6 in Alf:
+							_6 = _5 + _6
+							Save(_6, Eny)
+							for _7 in Alf:
+								_7 = _6 + _7
+								Save(_7, Eny)
 
 
 
@@ -174,8 +237,9 @@ def Imprimir(Eny):
 	Total = Tot()
 	Actual = 1
 	
-	print("\n\t [*] Generando Lista De Cadenas y Guardandolas En El Archivo...")
-	print("\n\n\t\t [+] Total:", Total, "\n\n")
+	print("\n\n\t [*] Generando Lista De Cadenas y Guardandolas En El Archivo...")
+	print("\n\n\t\t [~] Tamaño Aprox. De Salida: {:.3f} Mb.".format(Total/130000))
+	print("\n\t\t [~] Total De Cadenas: {}\n\n".format(Total))
 	
 	for x in Alf:
 		
@@ -183,19 +247,34 @@ def Imprimir(Eny):
 		
 		if Cony >= 2: Combin(x, Eny)
 	
-	Progreso(Actual, Total)
+	Progreso(Actual-1, Total)
 
 
 
 def Main():
 	
-	global Cony, Total
+	global Cony, Total, Alf
+	
+	Keys = input("\n\n [*] Añade Palabras Para Crear El Diccionario."+
+				 "\n\n [*] Separalas usando 'espacio' ',' ';'"+
+				 "\n\n [*] Ejemplos: Hola Mundo | Hola,Mundo | Hola;Mundo | Hola, Mundo | etc."+
+				 "\n\n     >>> ").replace(" ",";").replace(",",";").split(";")
+	Alfa = ""
+	Alf = ""
+	
+	for x in Keys:	# Obtenemos Una Sola Cadena con Todas Las Palabras Escritas.
+		
+		if x != "": Alfa += x
+	
+	for y in Alfa:	# Eliminamos Letras Repetidas.
+		
+		if not y in Alf: Alf += y
 	
 	while True:
 	
 		try:
 			
-			Cony = int(input("\n\n\n\n\t [+] Máxima Longitud Por Cadena: "))
+			Cony = int(input("\n [+] Longitud Máx. [1-6]: "))
 			
 			if Cony > 6: print("\n\n [!] Error!")
 			elif Cony < 1: return
@@ -212,26 +291,16 @@ def Main():
 	
 	Eny.close()
 	
-	print("\n\n\n\t Tamaño De Lista: ", Total)
+	print("\n\n")
+	
+	os.system("Pause")
 
 
 
 if __name__ == "__main__":
 	
-	Keys = input("\n\n [*] Añade Palabras Para Crear El Diccionario."+
-				 "\n\n [*] Separalas usando 'espacio' ',' ';'"+
-				 "\n\n [*] Ejemplos: Hola Mundo | Hola,Mundo | Hola;Mundo | Hola, Mundo | etc."+
-				 "\n\n >>> ").replace(" ",";").replace(",",";").split(";")
-	Alfa = ""
-	Alf = ""
 	
-	for x in Keys:	# Obtenemos Una Sola Cadena con Todas Las Palabras Escritas.
-		
-		if x != "": Alfa += x
-	
-	for y in Alfa:	# Eliminamos Letras Repetidas.
-		
-		if not y in Alf: Alf += y
+	Dat()
 	
 	Main()
 
