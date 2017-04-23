@@ -87,7 +87,9 @@ def Progreso(x, Total):	# Imprime Una Barra De Progreso.
 
 def Tiempo(sec):	# Imprime El Tiempo Restante.
 	
-	if sec >= 3600:  # Convierte a Horas
+	if sec >= 86400:  # Convierte a Dias
+		return "{0:d} Dia(s)".format(int(sec / 86400))
+	elif sec >= 3600:  # Convierte a Horas
 		return "{0:d} hora(s)".format(int(sec / 3600))
 	elif sec >= 60:  # Convierte a Minutos
 		return "{0:d} minuto(s)".format(int(sec / 60))
@@ -96,7 +98,7 @@ def Tiempo(sec):	# Imprime El Tiempo Restante.
 
 
 
-def Tot():	# Función Que Determina La Canctidad De Cadenas De Salida (Con Repetición).
+def Tot():	# Función Que Determina La Canctidad De Cadenas De Salida.
 	
 	global Cony
 	
@@ -106,7 +108,7 @@ def Tot():	# Función Que Determina La Canctidad De Cadenas De Salida (Con Repet
 	for x in range(1, Cony+1):
 		
 		Z += Len ** x
-	
+
 	return Z
 	
 
