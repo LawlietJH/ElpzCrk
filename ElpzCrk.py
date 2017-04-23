@@ -8,7 +8,7 @@
 #          ███████╗███████╗██║     ███████╗╚██████╗██║  ██║██║  ██╗
 #          ╚══════╝╚══════╝╚═╝     ╚══════╝ ╚═════╝╚═╝  ╚═╝╚═╝  ╚═╝
 #                                                         By: LawlietJH
-#																v1.2.8
+#																v1.2.9
 
 import threading
 import time
@@ -18,7 +18,7 @@ import os
 
 
 Autor = "LawlietJH"
-Version = "v1.2.8"
+Version = "v1.2.9"
 
 BEC = """
           ███████╗██╗     ██████╗ ███████╗ ██████╗██████╗ ██╗  ██╗
@@ -26,15 +26,13 @@ BEC = """
           █████╗  ██║     ██████╔╝  ███╔╝ ██║     ██████╔╝█████╔╝ 
           ██╔══╝  ██║     ██╔═══╝  ███╔╝  ██║     ██╔══██╗██╔═██╗ 
           ███████╗███████╗██║     ███████╗╚██████╗██║  ██║██║  ██╗
-          ╚══════╝╚══════╝╚═╝     ╚══════╝ ╚═════╝╚═╝  ╚═╝╚═╝  ╚═╝
-"""
+          ╚══════╝╚══════╝╚═╝     ╚══════╝ ╚═════╝╚═╝  ╚═╝╚═╝  ╚═╝"""
 #~ Fuente: 'ANSI Shadow' - Página: http://patorjk.com/software/taag/#p=display&f=ANSI%20Shadow&t=ElpzCrk
 
-BA = r"""
+BA = """
                             ╦  ┌─┐┬ ┬┬  ┬┌─┐┌┬┐╦╦ ╦
                             ║  ├─┤││││  │├┤  │ ║╠═╣
-                            ╩═╝┴ ┴└┴┘┴─┘┴└─┘ ┴╚╝╩ ╩
-"""
+                            ╩═╝┴ ┴└┴┘┴─┘┴└─┘ ┴╚╝╩ ╩"""
 #~ Fuente: 'Calvin S' - Página: http://patorjk.com/software/taag/#p=display&f=Calvin%20S&t=LawlietJH
 
 
@@ -47,7 +45,7 @@ def Dat():
 	Nombre = BEC
 	Autor = BA
 	Ver = "\n\n{:^80}".format(Version)
-	print(Nombre, "\n\n", Autor, Ver)
+	print(Nombre, "\n", Autor, Ver)
 
 
 
@@ -394,7 +392,57 @@ def Barra():
 	elif Total > 10000000:
 		if Actual % 10000 == 0: Progreso(Actual, Total)
 
+
+
+def getTotal(Total):
 	
+	Len = len(str(Total))
+	Cadena = ""
+	
+	if Len >= 4 and Len <=6:
+		
+		Cadena = str(Total)
+		Cadena = Cadena[:-3] + "," + Cadena[-3:]
+		return Cadena
+	
+	elif Len >= 7 and Len <=9:
+		
+		Cadena = str(Total)
+		Cadena = Cadena[:-6] + "," + Cadena[-6:-3] + "," + Cadena[-3:]
+		return Cadena
+		
+	elif Len >= 10 and Len <=12:
+		
+		Cadena = str(Total)
+		Cadena = Cadena[:-9] + "," + Cadena[-9:-6] + "," + Cadena[-6:-3] + "," + Cadena[-3:]
+		return Cadena
+		
+	elif Len >= 13 and Len <=15:
+		
+		Cadena = str(Total)
+		Cadena = Cadena[:-12] + "," + Cadena[-12:-9] + "," + Cadena[-9:-6] + "," + Cadena[-6:-3] + "," + Cadena[-3:]
+		return Cadena
+		
+	elif Len >= 16 and Len <=18:
+		
+		Cadena = str(Total)
+		Cadena = Cadena[:-15] + "," + Cadena[-15:-12] + "," + Cadena[-12:-9] + "," + Cadena[-9:-6] + "," + Cadena[-6:-3] + "," + Cadena[-3:]
+		return Cadena
+		
+	elif Len >= 19 and Len <=21:
+		
+		Cadena = str(Total)
+		Cadena = Cadena[:-18] + "," + Cadena[-18:-15] + "," + Cadena[-15:-12] + "," + Cadena[-12:-9] + "," + Cadena[-9:-6] + "," + Cadena[-6:-3] + "," + Cadena[-3:]
+		return Cadena
+		
+	elif Len >= 22 and Len <=24:
+		
+		Cadena = str(Total)
+		Cadena = Cadena[:-21] + "," + Cadena[-21:-18] + "," + Cadena[-18:-15] + "," + Cadena[-15:-12] + "," + Cadena[-12:-9] + "," + Cadena[-9:-6] + "," + Cadena[-6:-3] + "," + Cadena[-3:]
+		return Cadena
+		
+	else: return str(Total)
+
 	
 def Imprimir(Eny):
 	
@@ -402,10 +450,17 @@ def Imprimir(Eny):
 	
 	Total = Tot()
 	Actual = 1
+	Tam = Total/130000
+	Cadenas = ""
 	
 	print("\n\t [*] Generando Lista De Cadenas y Guardandolas En El Archivo...")
-	print("\n\t\t [~] Tamaño Aprox. De Salida:\t{:.3f} Mb.".format(Total/130000))
-	print("\t\t [~] Total De Cadenas:\t\t{}".format(Total))
+	if Tam < 1000:   print("\n\t\t [~] Tamaño Aprox. De Salida:\t{:.3f} Mb.".format(Tam))
+	elif Tam > 1000: print("\n\t\t [~] Tamaño Aprox. De Salida:\t{:.2f} Gb.".format(Tam/1000))
+	
+	if len(str(Total)) <= 3: Cadenas = Total
+	else: Cadenas = getTotal(Total)
+	
+	print("\t\t [~] Total De Cadenas:\t\t{}".format(Cadenas))
 	print("\t\t [~] Nombre De Archivo:\t\tEny.ZioN\n\n")
 	
 	try:
@@ -462,6 +517,13 @@ def Main():
 		
 		if not y in Alf: Alf += y
 	
+	if len(Alf) > 70:
+		print("\n\n [!] Es Una Locura Viejo!!! Hay Más de 1 Cuatrillon De Posibilidades!!!")
+		print("\n\n\t Algo así como: 1'000,000'000,000'000,000'000,000")
+		print("\t\t\t  Trillon  Billon  Millon  Miles")
+		time.sleep(5)
+		return
+	
 	while True:
 	
 		try:
@@ -501,4 +563,4 @@ if __name__ == "__main__":
 	
 	Main()
 
-
+	#~ asdfghjklñpoiuytrewqzxcvbnmASDFGHJKLÑPOIUYTREWQZXCVBNM0123456789_-¿?!¡.
