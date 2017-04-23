@@ -8,9 +8,8 @@
 #          ███████╗███████╗██║     ███████╗╚██████╗██║  ██║██║  ██╗
 #          ╚══════╝╚══════╝╚═╝     ╚══════╝ ╚═════╝╚═╝  ╚═╝╚═╝  ╚═╝
 #                                                         By: LawlietJH
-#																v1.3.0
+#																v1.3.2
 
-import threading
 import time
 import sys
 import os
@@ -18,7 +17,7 @@ import os
 
 
 Autor = "LawlietJH"
-Version = "v1.3.0"
+Version = "v1.3.2"
 
 BEC = """
           ███████╗██╗     ██████╗ ███████╗ ██████╗██████╗ ██╗  ██╗
@@ -40,7 +39,7 @@ BA = """
 
 
 
-def Dat():
+def Dat():	# Imprime Los Banners.
 		
 	Nombre = BEC
 	Autor = BA
@@ -87,22 +86,24 @@ def Progreso(x, Total):	# Imprime Una Barra De Progreso.
 
 def Tiempo(sec):	# Imprime El Tiempo Restante.
 	
-	if sec >= 3144960000:  # Convierte a Siglos
-		return "{0:d} Siglo(s)".format(int(sec / 3144960000))
+	if sec >= 31449600000:  # Convierte a Milenios
+		return "{:d} Milenio(s)".format(int(sec / 31449600000))
+	elif sec >= 3144960000:  # Convierte a Siglos
+		return "{:d} Siglo(s)".format(int(sec / 3144960000))
 	elif sec >= 314496000:  # Convierte a Decadas
-		return "{0:d} Decada(s)".format(int(sec / 314496000))
+		return "{:d} Decada(s)".format(int(sec / 314496000))
 	elif sec >= 31449600:  # Convierte a Años
-		return "{0:d} año(s)".format(int(sec / 31449600))
+		return "{:d} año(s)".format(int(sec / 31449600))
 	elif sec >= 604800:  # Convierte a Semanas
-		return "{0:d} Semana(s)".format(int(sec / 604800))
+		return "{:d} Semana(s)".format(int(sec / 604800))
 	elif sec >= 86400:  # Convierte a Dias
-		return "{0:d} Dia(s)".format(int(sec / 86400))
+		return "{:d} Dia(s)".format(int(sec / 86400))
 	elif sec >= 3600:  # Convierte a Horas
-		return "{0:d} hora(s)".format(int(sec / 3600))
+		return "{:d} hora(s)".format(int(sec / 3600))
 	elif sec >= 60:  # Convierte a Minutos
-		return "{0:d} minuto(s)".format(int(sec / 60))
+		return "{:d} minuto(s)".format(int(sec / 60))
 	else:            # Sin Conversión
-		return "{0:d} segundo(s)".format(int(sec))
+		return "{:d} segundo(s)".format(int(sec))
 
 
 
@@ -121,7 +122,7 @@ def Tot():	# Función Que Determina La Canctidad De Cadenas De Salida.
 
 
 
-def Save(X, Eny):
+def Save(X, Eny):	# Función Que Guarda Las Cadenas En EL Archivo.
 	
 	global Actual
 	
@@ -135,7 +136,7 @@ def Save(X, Eny):
 
 
 
-def Combin(A, Eny):
+def Combin(A, Eny):	# Función Que Crea Las Cadenas Desde 1 Hasta El Máximo de Longitud Elegida.
 	
 	global Cony
 	
@@ -388,7 +389,7 @@ def Combin(A, Eny):
 
 
 
-def Comby(A, Eny):
+def Comby(A, Eny):	# Función Que Crea Las Cadenas Sólo de la Longitud Elegida.
 	
 	global Cony
 	
@@ -575,7 +576,7 @@ def Comby(A, Eny):
 	
 
 
-def Barra():
+def Barra():	# Función Que Controla La Velocidad Al Imprimir En Pantalla La Barra De Progreso.
 	
 	global Total, Actual
 	
@@ -592,7 +593,7 @@ def Barra():
 
 
 
-def getTotal(Total):
+def getTotal(Total):	# Función Que Divide Con Coma "," La Cadena Del Total De Cadenas En El Archivo.
 	
 	Len = len(str(Total))
 	Cadena = ""
@@ -628,7 +629,7 @@ def getTotal(Total):
 	else: return str(Total)
 
 	
-def Imprimir(Eny):
+def Imprimir(Eny):	# Función Que Imprime En Pantalla La Información de Salida.
 	
 	global Total, Actual
 	
@@ -669,12 +670,22 @@ def Imprimir(Eny):
 		
 		Total = len(Alf) ** Cony
 		Actual = 1
-		Tam = Total/116510
+		Tam = 0
+		
+		if Cony == 7: Tam = Total/116510
+		elif Cony == 6: Tam = Total/131240
+		elif Cony == 5: Tam = Total/146500
+		else: Tam = Total / 100000
+		
 		Cadenas = ""
 		
 		print("\n\t [*] Generando Lista De Cadenas y Guardandolas En El Archivo...")
-		if Tam < 1000:   print("\n\t\t [~] Tamaño Aprox. De Salida:\t{:.3f} Mb.".format(Tam))
-		elif Tam > 1000: print("\n\t\t [~] Tamaño Aprox. De Salida:\t{:.2f} Gb.".format(Tam/1000))
+		if Tam < 1000:
+			print("\n\t\t [~] Tamaño Aprox. De Salida:\t{:.3f} Mb.".format(Tam))
+		elif Tam >= 1000 and Tam < 10000:
+			print("\n\t\t [~] Tamaño Aprox. De Salida:\t{:.2f} Gb.".format(Tam/1000))
+		elif Tam >= 10000:
+			print("\n\t\t [~] Tamaño Aprox. De Salida:\t{:.2f} Tb.".format(Tam/10000))
 		
 		if len(str(Total)) <= 3: Cadenas = Total
 		else: Cadenas = getTotal(Total)
@@ -704,7 +715,7 @@ def Imprimir(Eny):
 
 
 
-def Main():
+def Main():	# Función Principal Que Llama A Las Otras Funciones.
 	
 	global Cony, Total, Alf, Comy
 	
@@ -758,7 +769,7 @@ def Main():
 		
 		if x != "": Alfa += x
 	
-	for y in Alfa:	# Eliminamos Letras Repetidas.
+	for y in Alfa:	# Eliminamos Letras Repetidas. Asi Evitamos Las Cadenas Repetidas.
 		
 		if not y in Alf: Alf += y
 	
