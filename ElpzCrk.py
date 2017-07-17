@@ -8,7 +8,7 @@
 #          ███████╗███████╗██║     ███████╗╚██████╗██║  ██║██║  ██╗
 #          ╚══════╝╚══════╝╚═╝     ╚══════╝ ╚═════╝╚═╝  ╚═╝╚═╝  ╚═╝
 #                                                         By: LawlietJH
-#																v1.3.6
+#																v1.3.7
 
 import string
 import time
@@ -18,7 +18,7 @@ import os
 
 
 Autor = "LawlietJH"
-Version = "v1.3.6"
+Version = "v1.3.7"
 
 BEC = """
           ███████╗██╗     ██████╗ ███████╗ ██████╗██████╗ ██╗  ██╗
@@ -941,12 +941,12 @@ def KeyGen(Keys):	#~ Comprueba si hay alguna petición especial de caracteres.
 	Keys = Keys.replace("A-Z", string.ascii_uppercase)	#~ Alfabeto Mayúsculas.
 	Keys = Keys.replace("a-Z", string.ascii_lowercase + string.ascii_uppercase)	#~ Alfabeto Minúsculas + Alfabeto Mayúsculas.
 	Keys = Keys.replace("0-9", string.digits)	#~ Digitos de 0 al 9.
+	Keys = Keys.replace("0-z-Z", string.digits + string.ascii_lowercase + string.ascii_uppercase)	#~ Digitos + Alfabeto Minúsculas + Alfabeto Mayúsculas.
 	Keys = Keys.replace("0-z", string.digits + string.ascii_lowercase)	#~ Digitos + Alfabeto Minúsculas.
 	Keys = Keys.replace("0-Z", string.digits + string.ascii_uppercase)	#~ Digitos + Alfabeto Mayúsculas.
-	Keys = Keys.replace("0-z-Z", string.digits + string.ascii_lowercase + string.ascii_uppercase)	#~ Digitos + Alfabeto Minúsculas + Alfabeto Mayúsculas.
-	Keys = Keys.replace("0-f", string.hexdigits.lower())	#~ Hexadecimal Minúsculas.
-	Keys = Keys.replace("0-F", string.hexdigits.upper())	#~ Hexadecimal Mayúsculas.
 	Keys = Keys.replace("0-f-F", string.hexdigits)	#~ Hexadecimal Minúsculas + Hexadecimal Mayúsculas.
+	Keys = Keys.replace("0-f", string.hexdigits[:-6])	#~ Hexadecimal Minúsculas.
+	Keys = Keys.replace("0-F", string.hexdigits.upper()[:-6])	#~ Hexadecimal Mayúsculas.
 	
 	return Keys
 
@@ -989,14 +989,19 @@ def Main():	# Función Principal Que Llama A Las Otras Funciones.
 		Dat()
 		
 		try:
-			print("\n [*] Añade Palabras Para Crear El Diccionario."+
+			while True:
+				print("\n [*] Añade Palabras Para Crear El Diccionario."+
 				"\n [*] Separalas usando 'espacio' ',' ';'"+
 				"\n [*] Ejemplos: Hola Mundo | Hola,Mundo | Hola;Mundo | Hola, Mundo | etc."+
 				"\n\n")
-			Keys = input("     >>> ")
-			
-			Keys = KeyGen(Keys).replace(" ",";").replace(",",";").split(";")
-			
+				Keys = input("     >>> ")
+				
+				Keys = KeyGen(Keys).replace(" ",";").replace(",",";").split(";")
+				
+				print(Keys,"\n\n", len(Keys[0]))
+				
+				os.system("Pause > Nul")
+				
 			if Keys != [""]: break
 			
 		except KeyboardInterrupt:
