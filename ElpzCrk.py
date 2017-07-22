@@ -8,7 +8,7 @@
 #          ███████╗███████╗██║     ███████╗╚██████╗██║  ██║██║  ██╗
 #          ╚══════╝╚══════╝╚═╝     ╚══════╝ ╚═════╝╚═╝  ╚═╝╚═╝  ╚═╝
 #                                                         By: LawlietJH
-#																v1.3.7
+#																v1.3.8
 
 import string
 import time
@@ -18,7 +18,7 @@ import os
 
 
 Autor = "LawlietJH"
-Version = "v1.3.7"
+Version = "v1.3.8"
 
 BEC = """
           ███████╗██╗     ██████╗ ███████╗ ██████╗██████╗ ██╗  ██╗
@@ -940,15 +940,34 @@ def KeyGen(Keys):	#~ Comprueba si hay alguna petición especial de caracteres.
 	Keys = Keys.replace("a-z", string.ascii_lowercase)	#~ Alfabeto Minúsculas.
 	Keys = Keys.replace("A-Z", string.ascii_uppercase)	#~ Alfabeto Mayúsculas.
 	Keys = Keys.replace("a-Z", string.ascii_lowercase + string.ascii_uppercase)	#~ Alfabeto Minúsculas + Alfabeto Mayúsculas.
-	Keys = Keys.replace("0-9", string.digits)	#~ Digitos de 0 al 9.
-	Keys = Keys.replace("0-z-Z", string.digits + string.ascii_lowercase + string.ascii_uppercase)	#~ Digitos + Alfabeto Minúsculas + Alfabeto Mayúsculas.
-	Keys = Keys.replace("0-z", string.digits + string.ascii_lowercase)	#~ Digitos + Alfabeto Minúsculas.
-	Keys = Keys.replace("0-Z", string.digits + string.ascii_uppercase)	#~ Digitos + Alfabeto Mayúsculas.
+	Keys = Keys.replace("0-9", string.digits)	#~ Dígitos del 0 al 9.
+	Keys = Keys.replace("0-z-Z", string.digits + string.ascii_lowercase + string.ascii_uppercase)	#~ Dígitos del 0 al 9 + Alfabeto Minúsculas + Alfabeto Mayúsculas.
+	Keys = Keys.replace("0-z", string.digits + string.ascii_lowercase)	#~ Dígitos del 0 al 9 + Alfabeto Minúsculas.
+	Keys = Keys.replace("0-Z", string.digits + string.ascii_uppercase)	#~ Dígitos del 0 al 9 + Alfabeto Mayúsculas.
 	Keys = Keys.replace("0-f-F", string.hexdigits)	#~ Hexadecimal Minúsculas + Hexadecimal Mayúsculas.
 	Keys = Keys.replace("0-f", string.hexdigits[:-6])	#~ Hexadecimal Minúsculas.
 	Keys = Keys.replace("0-F", string.hexdigits.upper()[:-6])	#~ Hexadecimal Mayúsculas.
 	
 	return Keys
+
+
+
+def ComandosRapidos():
+	
+	os.system("Cls")
+	
+	print("\n\n\n    [ a-z ]      Alfabeto en Minúsculas."+
+	"\n\n    [ A-Z ]      Alfabeto en Mayúsculas."+
+	"\n\n    [ a-Z ]      Alfabeto en Minúsculas y Mayúsculas."+
+	"\n\n    [ 0-9 ]      Dígitos del 0 al 9."+
+	"\n\n    [ 0-z-Z ]    Dígitos del 0 al 9 + Alfabeto en Minúsculas y Mayúsculas."+
+	"\n\n    [ 0-z ]      Dígitos del 0 al 9 + Alfabeto en Minúsculas."+
+	"\n\n    [ 0-Z ]      Dígitos del 0 al 9 + Alfabeto en Mayúsculas."+
+	"\n\n    [ 0-f-F ]    Hexadecimal en Minúsculas y Mayúsculas."+
+	"\n\n    [ 0-f ]      Hexadecimal en Minúsculas."+
+	"\n\n    [ 0-F ]      Hexadecimal en Mayúsculas.\n\n")
+	
+	os.system("Pause > Nul")
 
 
 
@@ -963,10 +982,11 @@ def Main():	# Función Principal Que Llama A Las Otras Funciones.
 	while True:
 		
 		os.system("cls")
+		Dat()
 		
-		print("\n\t [1] Crear Diccionarios Con Caracteres Desde 1. ")
-		print("\n\t [2] Crear Diccionarios Con Caracteres De La Longitud Indicada. ")
-		print("\n\t >>> ", end="")
+		print("\n\t [1] Crear Diccionarios Con Caracteres Desde 1. "+
+		"\n\t [2] Crear Diccionarios Con Caracteres De La Longitud Indicada. "+
+		"\n\t >>> ", end="")
 		
 		try:
 			Resp = int(input())
@@ -979,6 +999,7 @@ def Main():	# Función Principal Que Llama A Las Otras Funciones.
 				break
 			else: pass
 			
+		except KeyboardInterrupt: exit(1)
 		except: pass
 		
 	Keys = ""
@@ -989,19 +1010,21 @@ def Main():	# Función Principal Que Llama A Las Otras Funciones.
 		Dat()
 		
 		try:
-			while True:
-				print("\n [*] Añade Palabras Para Crear El Diccionario."+
-				"\n [*] Separalas usando 'espacio' ',' ';'"+
-				"\n [*] Ejemplos: Hola Mundo | Hola,Mundo | Hola;Mundo | Hola, Mundo | etc."+
-				"\n\n")
-				Keys = input("     >>> ")
+			
+			print("\n [*] Añade Palabras Para Crear El Diccionario."+
+			"\n [*] Escribe --h o --help Para Mostrar La Lista de Comandos Rápidos."+
+			"\n [*] Separalas usando 'espacio' ',' ';'"+
+			"\n [*] Ejemplos: Hola Mundo | Hola,Mundo | Hola;Mundo | Hola, Mundo | etc."+
+			"\n\n")
+			Keys = input("     >>> ")
+			
+			if Keys == "--h" or Keys == "--help":
 				
-				Keys = KeyGen(Keys).replace(" ",";").replace(",",";").split(";")
-				
-				print(Keys,"\n\n", len(Keys[0]))
-				
-				os.system("Pause > Nul")
-				
+				ComandosRapidos()
+				continue
+			
+			Keys = KeyGen(Keys).replace(" ",";").replace(",",";").split(";")
+			
 			if Keys != [""]: break
 			
 		except KeyboardInterrupt:
@@ -1023,9 +1046,9 @@ def Main():	# Función Principal Que Llama A Las Otras Funciones.
 		if not y in Alf: Alf += y
 	
 	if len(Alf) > 70:
-		print("\n\n [!] Es Una Locura Viejo!!! Hay Más de 1 Cuatrillon De Posibilidades!!!")
-		print("\n\n\t Algo así como: 1'000,000'000,000'000,000'000,000")
-		print("\t\t\t  Trillon  Billon  Millon  Miles")
+		print("\n\n [!] Es Una Locura Viejo!!! Hay Más de 1 Cuatrillon De Posibilidades!!!"+
+		"\n\n\t Algo así como: 1'000,000'000,000'000,000'000,000"+
+		"\t\t\t  Trillon  Billon  Millon  Miles")
 		time.sleep(5)
 		return
 	
@@ -1064,6 +1087,7 @@ def Main():	# Función Principal Que Llama A Las Otras Funciones.
 
 if __name__ == "__main__":
 	
-	Main()
-
+	while True:
+		
+		Main()
 
