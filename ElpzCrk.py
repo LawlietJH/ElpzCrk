@@ -8,7 +8,7 @@
 #          ███████╗███████╗██║     ███████╗╚██████╗██║  ██║██║  ██╗
 #          ╚══════╝╚══════╝╚═╝     ╚══════╝ ╚═════╝╚═╝  ╚═╝╚═╝  ╚═╝
 #                                                         By: LawlietJH
-#																v1.3.8
+#																v1.3.9
 
 import string
 import time
@@ -18,7 +18,7 @@ import os
 
 
 Autor = "LawlietJH"
-Version = "v1.3.8"
+Version = "v1.3.9"
 
 BEC = """
           ███████╗██╗     ██████╗ ███████╗ ██████╗██████╗ ██╗  ██╗
@@ -857,12 +857,19 @@ def Imprimir(Eny):	# Función Que Imprime En Pantalla La Información de Salida.
 		
 		Total = Tot()
 		Actual = 1
-		Tam = Total/130000
+		Tam = Total/100000
+		
 		Cadenas = ""
 	
 		print("\n\t [*] Generando Lista De Cadenas y Guardandolas En El Archivo...")
-		if Tam < 1000:   print("\n\t\t [~] Tamaño Aprox. De Salida:\t{:.3f} Mb.".format(Tam))
-		elif Tam > 1000: print("\n\t\t [~] Tamaño Aprox. De Salida:\t{:.2f} Gb.".format(Tam/1000))
+		if Tam < 1024:
+			print("\n\t\t [~] Tamaño Aprox. De Salida:\t{:.3f} Mb.".format(Tam))
+		elif Tam >= 1024 and Tam < 1048576:
+			print("\n\t\t [~] Tamaño Aprox. De Salida:\t{:.2f} Gb.".format(Tam/1024))
+		elif Tam >= 1048576 and Tam < 1073741824:
+			print("\n\t\t [~] Tamaño Aprox. De Salida:\t{:.2f} Tb.".format(Tam/1048576))
+		elif Tam >= 1073741824:
+			print("\n\t\t [~] Tamaño Aprox. De Salida:\t{:.2f} Pb.".format(Tam/1073741824))
 		
 		if len(str(Total)) <= 3: Cadenas = Total
 		else: Cadenas = getTotal(Total)
@@ -880,11 +887,11 @@ def Imprimir(Eny):	# Función Que Imprime En Pantalla La Información de Salida.
 			Progreso(Actual-1, Total)
 		
 		except KeyboardInterrupt:
-				
-				print("\n\n\t Cancelando..!")
-				try: time.sleep(1.5)
-				except KeyboardInterrupt: pass
-				exit(1)
+			
+			print("\n\n\t Cancelando..!")
+			try: time.sleep(1.5)
+			except KeyboardInterrupt: pass
+			return
 				
 	elif Comy == True:
 		
@@ -895,17 +902,19 @@ def Imprimir(Eny):	# Función Que Imprime En Pantalla La Información de Salida.
 		if Cony == 7: Tam = Total/116510
 		elif Cony == 6: Tam = Total/131240
 		elif Cony == 5: Tam = Total/146500
-		else: Tam = Total / 100000
+		else: Tam = Total / 102400
 		
 		Cadenas = ""
 		
 		print("\n\t [*] Generando Lista De Cadenas y Guardandolas En El Archivo...")
-		if Tam < 1000:
+		if Tam < 1024:
 			print("\n\t\t [~] Tamaño Aprox. De Salida:\t{:.3f} Mb.".format(Tam))
-		elif Tam >= 1000 and Tam < 10000:
-			print("\n\t\t [~] Tamaño Aprox. De Salida:\t{:.2f} Gb.".format(Tam/1000))
-		elif Tam >= 10000:
-			print("\n\t\t [~] Tamaño Aprox. De Salida:\t{:.2f} Tb.".format(Tam/10000))
+		elif Tam >= 1024 and Tam < 1048576:
+			print("\n\t\t [~] Tamaño Aprox. De Salida:\t{:.2f} Gb.".format(Tam/1024))
+		elif Tam >= 1048576 and Tam < 1073741824:
+			print("\n\t\t [~] Tamaño Aprox. De Salida:\t{:.2f} Tb.".format(Tam/1048576))
+		elif Tam >= 1073741824:
+			print("\n\t\t [~] Tamaño Aprox. De Salida:\t{:.2f} Pb.".format(Tam/1073741824))
 		
 		if len(str(Total)) <= 3: Cadenas = Total
 		else: Cadenas = getTotal(Total)
@@ -923,11 +932,11 @@ def Imprimir(Eny):	# Función Que Imprime En Pantalla La Información de Salida.
 			Progreso(Actual-1, Total)
 		
 		except KeyboardInterrupt:
-				
-				print("\n\n\t Cancelando..!")
-				try: time.sleep(1.5)
-				except KeyboardInterrupt: pass
-				exit(1)
+			
+			print("\n\n\t Cancelando..!")
+			try: time.sleep(1.5)
+			except KeyboardInterrupt: pass
+			return
 
 
 
@@ -956,7 +965,8 @@ def ComandosRapidos():
 	
 	os.system("Cls")
 	
-	print("\n\n\n    [ a-z ]      Alfabeto en Minúsculas."+
+	print("\n    Comando      Descripción"+
+	"\n\n    [ a-z ]      Alfabeto en Minúsculas."+
 	"\n\n    [ A-Z ]      Alfabeto en Mayúsculas."+
 	"\n\n    [ a-Z ]      Alfabeto en Minúsculas y Mayúsculas."+
 	"\n\n    [ 0-9 ]      Dígitos del 0 al 9."+
@@ -984,9 +994,9 @@ def Main():	# Función Principal Que Llama A Las Otras Funciones.
 		os.system("cls")
 		Dat()
 		
-		print("\n\t [1] Crear Diccionarios Con Caracteres Desde 1. "+
-		"\n\t [2] Crear Diccionarios Con Caracteres De La Longitud Indicada. "+
-		"\n\t >>> ", end="")
+		print("\n\n\t [1] Crear Diccionarios Con Cadenas Desde 1 Caracter. "+
+		"\n\n\t [2] Crear Diccionarios Con Cadenas De La Longitud Indicada. "+
+		"\n\n\t >>> ", end="")
 		
 		try:
 			Resp = int(input())
